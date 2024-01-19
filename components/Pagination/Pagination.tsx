@@ -3,7 +3,7 @@ import { useTheme } from 'next-themes'
 import clsx from 'clsx'
 
 type PaginationProps = {
-  toporbottom:boolean
+  toporbottom: boolean
   totalPages: number[] | null
   currentPage: number
   handlePageChange: (page: number) => void
@@ -33,27 +33,19 @@ export default function Pagination({
     <>
       {totalPages && totalPages.length > 1 && (
         <div
-          className={
+          className={clsx(
             toporbottom == true
-              ? clsx(
-                  'w-full z-20 flex lg:w-full items-center justify-center ',
-                  'absolute bottom-2 right-0'
-                )
-              : clsx(
-                  ' z-20 flex w-full lg:w-full items-center justify-end ',
-                  'absolute top-0 right-0 '
-                )
-          }
+              ? 'w-full z-20 flex lg:w-full items-center justify-center absolute bottom-2 right-0'
+              : 'z-20 flex w-full lg:w-full items-center justify-end absolute top-0 right-0'
+          )}
         >
-          <div className={
-            toporbottom == true
-              ? clsx(
-                "flex items-center px-6 py-1 gap-4"
-                )
-              : clsx(
-                "flex items-center gap-2"
-                )
-          }>
+          <div
+            className={
+              toporbottom == true
+                ? clsx('flex items-center px-6 py-1 gap-4')
+                : clsx('flex items-center gap-2')
+            }
+          >
             <button
               className={clsx(
                 'flex items-center justify-center text-[#8b5cf6]',
